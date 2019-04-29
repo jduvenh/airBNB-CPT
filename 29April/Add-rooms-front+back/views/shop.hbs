@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+                <li class="main-header__item"><a href="/admin/add-product">Add Room</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>My Rooms</h1>
+        <p>List of all the rooms...</p>
+        {{#if hasProducts}}
+            <div class="grid">  
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title">Great Room</h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1" alt="A House">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">R445.99</h2>
+                        <p class="product__description">A very interesting house about so many even more interesting things!</p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="btn">BOOK!</button>
+                    </div>
+                </article>
+            </div>
+            {{ else }}
+                <h1> no rooms found</h1>
+            {{/if}} 
+    </main>
+</body>
+
+</html>
