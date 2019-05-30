@@ -1,0 +1,54 @@
+.grid {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.room_title {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+
+}
+
+img {
+    width: 700px;
+    height: auto;
+    box-shadow: 0px 2px 6px 0px lightslategrey;
+    padding: 2px;
+    margin: 0 auto;
+    display: block;
+}
+
+.room_price {
+    font-family: 'Space Mono', monospace;
+}
+
+.room_description {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.card_room_item {
+    width: auto;
+    height: auto;
+}
+
+.ebtn {
+    text-decoration: none;
+    color: #444444;
+}
+
+.dbtn {
+    width: 100px;
+    height: auto;
+    border-radius: 2px;
+    background-color: #8295b7;
+}
+
+.dbtn, .ebtn {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.room_price, .room_description {
+    padding-left: 8px;
+}

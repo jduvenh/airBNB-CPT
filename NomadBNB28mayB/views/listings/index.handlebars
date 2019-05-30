@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="starter-template">
+    <form id="filterForm" method="get" class="form-horizontal" action="/listings_filter">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Date</label>
+        <div class="col-xs-5 date">
+          <div class="input-group input-append date" id="datePicker">
+            <input type="date" class="form-control" name="filter_date" require/>
+            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <div class="col-xs-5 col-xs-offset-3">
+            <button type="submit" class="btn btn-default">Search availability</button>
+          </div>
+      </div>
+    </form>
+
+    <h1>Listings</h1>
+
+    <table class="table table-bordered" id="main-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Available</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      {{#if listing}}
+        <tbody>
+          {{#each listing}}
+          <tr>
+            <th scope="row">{{ this.index }}</th>
+            <td><a {{href= "/bookings/new?id=" + listing.id}}  {{listing.name}}></a> </a></td>
+            <td>R {{listing.price}} </td>
+            <td> {{new Date(listing.available).toDateString()}} </td>
+            <td> {{listing.description}} </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      {{/if}}
+    </table>
+  </div>
+</div>

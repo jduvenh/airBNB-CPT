@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    function Bookroomfull(){
+            alert("Sorry, the room is olready booked ");
+        }
+        function Bookroom(){
+            alert("Room Booked ");
+        }
+    
+</script>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../css/arstyle.css">
+             </head>
+                <body>
+                   <main>
+                       <% if (rooms.length > 0) { %>
+                            <div class="grid">
+                                <% for (let room of rooms) { %>
+                                    <!-- <article class="card_room_item"> -->
+                                        <!-- <header class="card_header"> -->
+                                            <h1 class="room_title">
+                                                <%= room.title %>
+                                            </h1>
+                                        </header>
+                                        <!-- <div class="card_image"> -->
+                                            <img src="/<%= room.imageUrl %>" alt="<%= room.title %>">
+                                        </div>
+                                        <!-- <div class="card_content"> -->
+                                            <h2 class="room_price">R
+                                                <%= room.price %>
+                                            </h2>
+                                            <p class="room_description">
+                                                <%= room.description %>
+                                            </p>
+                                        </div>
+                                        <!-- <div class="card_actions"> -->
+                                        
+                                            <input type="hidden" value="<%= room._id %>" name="roomId">
+                                            <% if (room.booked == false) { %>
+                                                <button class="dbtn" type="button" onclick="Bookroom()">Book</button>
+                                            <% } else { %>
+                                                <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button>
+                                            <% } %>   
+                                        </div>
+                                    </article>
+                                    <% } %>
+                            </div>
+                            <% } else { %>
+                                <h1>No rooms Found!</h1>
+                                <% } %>
+                    </main>
+             
+                    <script src="/js/admin.js"></script>
