@@ -20,10 +20,12 @@ img {
 
 .room_price {
     font-family: 'Space Mono', monospace;
+    text-align: center;
 }
 
 .room_description {
     font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
 }
 
 .card_room_item {
@@ -41,6 +43,7 @@ img {
     height: auto;
     border-radius: 2px;
     background-color: #8295b7;
+    text-align: center;
 }
 
 .dbtn, .ebtn {
@@ -51,4 +54,15 @@ img {
 
 .room_price, .room_description {
     padding-left: 8px;
+}
+
+.fas {
+    background-color: none
+}
+.fa-arrow-left {
+    font-size: 20px;
+}
+
+.room-description {
+    background-color:pink;
 }
