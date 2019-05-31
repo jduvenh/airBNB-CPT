@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="starter-template">
+    <h1>Bookings</h1>
+    {{!-- {{#if receivedBookings}} --}}
+    <h3>Received bookings</h3>
+    <table class="table table-bordered" id="main-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Listing name</th>
+          <th>Requester</th>
+          <th>Booking date</th>
+          <th>Total price</th>
+          <th>Confirm</th>
+          <th>Reject</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{!-- <% receivedBookings.forEach(function(receivedBooking, index) { %> --}}
+        <tr>
+          {{!-- <th scope="row"><%= index + 1 %></th>
+          <td><%= receivedBooking.listingName %></td>
+          <td><%= receivedBooking.requesterName %></td>
+          <td><%= new Date(receivedBooking.bookingDate).toDateString() %></td>
+          <td>£ <%= receivedBooking.totalPrice %></td> --}}
+          <td>
+            {{!-- <% if (receivedBooking.confirmed === false && receivedBooking.rejected === false) { %> --}}
+            <form action="/bookings/complete">
+              <input type="hidden" name="action" value="confirm">
+              <input type="hidden" name="booking_id" value=<%= receivedBooking.id %> >
+              <button name="confirm" class="btn btn-default btn-sm" type="submit" >Confirm</button>
+            </form>
+            {{!-- <% } else if (receivedBooking.rejected === false && receivedBooking.confirmed === true) { %>
+            Confirmed
+            <% } else if (receivedBooking.rejected === true && receivedBooking.confirmed === false) { %>
+            Rejected
+            <% } %> --}}
+          </td>
+          <td>
+            {{!-- <% if (receivedBooking.rejected === false && receivedBooking.confirmed === false) { %> --}}
+            <form action="/bookings/complete">
+              <input type="hidden" name="action" value="reject">
+              <input type="hidden" name="booking_id" value={{!--<%= receivedBooking.id %>--}} >
+              <button name="reject" class="btn btn-default btn-sm" type="submit">Reject</button>
+            </form>
+            {{!-- <% } else if (receivedBooking.rejected === true && receivedBooking.confirmed === false) { %>
+            Rejected
+            <% } else if (receivedBooking.rejected === false && receivedBooking.confirmed === true) { %>
+            Confirmed
+            <% } %> --}}
+          </td>
+        </tr>
+        {{!-- <% });%> --}}
+      </tbody>
+    </table>
+    {{!-- <% } %> --}}
+
+    <h3>My bookings</h3>
+    <table class="table table-bordered" id="main-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Listing name</th>
+          <th>Booking date</th>
+          <th>Total price</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{!-- <% myBookings.forEach(function(booking, index) { %> --}}
+        <tr>
+          {{!-- <th scope="row"><%= index + 1 %></th>
+          <td><%= booking.listingName %></td>
+          <td><%= new Date(booking.bookingDate).toDateString() %></td>
+          <td><%= booking.totalPrice %></td> --}}
+          <td>
+            {{!-- <% if (booking.confirmed) { %>
+              Confirmed
+            <% } else if (booking.confirmed === false && booking.rejected !== true) { %>
+              Not confirmed
+            <% } else if (booking.rejected === true) { %>
+              Rejected
+            <% } %> --}}
+          </td>
+        </tr>
+        {{!-- <% });%> --}}
+      </tbody>
+    </table>
+    {{!-- {{/if}} --}}
+  </div>
+</div>

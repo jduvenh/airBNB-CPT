@@ -1,0 +1,42 @@
+
+
+/* .jumbotron {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    background-image: url('https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    color: #ffffff;
+    height: 600px;
+    text-shadow: 0.25px 0.25px 0.25px #000000;
+} */
+
+body    { 
+    padding-top:0px;
+    background-image: url("/images/brad-fickeisen-762583-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.jumbotron {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    color: #ffffff;
+    background-color: #8c9aad;
+    height: 300px;
+    opacity: 0.8;
+    text-shadow: 0px 1px 5px #000000;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    /* height: 2.5rem; */
+    background-color: #2f2f2f;
+    width: 100%;
+}
