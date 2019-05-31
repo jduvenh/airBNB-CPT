@@ -70,6 +70,8 @@ exports.Postlistings = (req, res) => {
     var description = req.body.description;
     var price = req.body.price;
     var available = req.body.available;
+    var landemail = req.body.landemail;
+    var landtell = req.body.landtell;
     var booking = null;
     var owner = req.session.user;
     var image = req.file;
@@ -83,6 +85,8 @@ exports.Postlistings = (req, res) => {
     console.log(available);
     console.log(roomlong);
     console.log(roomlat);
+    console.log(landemail);
+    console.log(landtell);
     /////////////////
       if (!image) {
         console.log('Attached file is not an image.');
@@ -106,6 +110,8 @@ exports.Postlistings = (req, res) => {
         georoom: { coordinates: [parseFloat(roomlong), parseFloat(roomlat)]},
         booked: false,
         bookedby: "",
+        roomemail: landemail,
+        roomnumber: landtell
       });
       roomdb
         .save()

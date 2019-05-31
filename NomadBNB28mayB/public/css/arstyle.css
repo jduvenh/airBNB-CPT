@@ -1,4 +1,4 @@
-.grid {
+/* .grid {
     width: 720px;
     margin: 0 auto;
 }
@@ -51,4 +51,77 @@ img {
 
 .room_price, .room_description {
     padding-left: 8px;
+} */
+
+.grid {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.room_title {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+
+}
+
+img {
+    width: 700px;
+    height: auto;
+    box-shadow: 0px 2px 6px 0px lightslategrey;
+    padding: 2px;
+    margin: 0 auto;
+    display: block;
+}
+
+.room_price {
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+}
+
+.room_description {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+.card_room_item {
+    width: auto;
+    height: auto;
+}
+
+.ebtn {
+    text-decoration: none;
+    color: #444444;
+}
+
+.dbtn {
+    width: 100px;
+    height: auto;
+    border-radius: 2px;
+    background-color: #8295b7;
+    text-align: center;
+}
+
+.dbtn, .ebtn {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.room_price, .room_description {
+    padding-left: 8px;
+}
+
+.fas {
+    background-color: none
+}
+.fa-arrow-left {
+    font-size: 20px;
+}
+
+.room-description {
+    background-color:pink;
+}
+.body{
+    background-image: url("/images/brad-fickeisen-762583-unsplash.jpg");
+    background-color: aqua;
 }

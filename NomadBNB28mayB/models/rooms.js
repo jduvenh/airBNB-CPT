@@ -50,6 +50,16 @@ const roomSchema = new Schema({
     type: {
       String
     }
+  },
+  roomemail: {
+    type: {
+      String
+    }
+  },
+  roomnumber: {
+    type: {
+      String
+    }
   }
 
 });

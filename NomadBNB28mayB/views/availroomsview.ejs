@@ -21,7 +21,7 @@
                        <% if (rooms.length > 0) { %>
                             <div class="grid">
                                 <% for (let room of rooms) { %>
-                                    <form action="/home/availrooms" method="post" enctype="multipart/form-data">
+                                    <form action="/home/postavailrooms" method="post" enctype="multipart/form-data">
                                     
                                             <h1 class="room_title">
                                                 <%= room.title %>
@@ -52,8 +52,8 @@
                                         
                                             <input type="hidden" value="<%= room._id %>" name="roomid" id="roomid">
                                             <% if (room.booked == false) { %>
-                                                <button class="dbtn" type="button" onclick="Bookroom()">View or Book</button>
-                                                <button class="dbtn" type="submit">View or Book.</button>
+                                                <button class="dbtn" type="button" onclick="Bookroom()">Book</button>
+                                                <button class="dbtn" type="submit">Book.</button>
                                             <% } else { %>
                                                 <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button>
                                             <% } %>   
