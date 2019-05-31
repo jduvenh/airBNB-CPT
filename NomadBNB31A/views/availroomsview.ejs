@@ -1,0 +1,109 @@
+<script type="text/javascript">
+    function Message(){
+            alert("Message sent to landlord");
+        }
+        function Like(){
+            alert("Room liked ");
+        }
+        function Comment(comment , roomid ){
+
+            alert("Comment recorded " + comment);
+        }
+        function Bookroomfull(){
+            alert("Sorry room fully booked"); 
+        }
+    
+</script>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/arstyle.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    <button onCLick="history.back()"><i class="fas fa-arrow-left"></i></button> 
+        <main>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../css/arstyle.css">
+             </head>
+                <body  background-image: url("/images/brad-fickeisen-762583-unsplash.jpg")>
+                   <main>
+                        
+                       <% if (rooms.length > 0) { %>
+                            <div class="grid">
+                                <% for (let room of rooms) { %>
+                                    <form action="/" class="inline">
+                                        <button class="float-left submit-button" >Home</button>
+                                    </form>
+                                    <form action="/home/postavailrooms" method="post" enctype="multipart/form-data">
+                                    
+                                            <h1 class="room_title">
+                                                <%= room.title %>
+                                            </h1>
+                                        </header>
+                                       
+                                            <img src="/<%= room.imageUrl %>" alt="<%= room.title %>">
+                                        </div>
+                                       
+                                            <h2 class="room_price">R
+                                                <%= room.price %> per night
+                                            </h2>
+                                            <p class="room_description">
+                                                Coordinates: <%= room.georoom.coordinates %> 
+                                            </p>
+                                            <p class="room_description">
+                                                Email for more info : <%= room.roomemail %>
+                                            </p>
+                                            <p class="room_description">
+                                               Call for more info :  <%= room.roomnumber %>
+                                            </p>
+                                            <p class="room_description">
+                                                More info: <%= room.description %>
+                                            </p>
+                                            
+                                                <p class="room_description">
+                                                    Comment: <%= room.comments %>
+                                                </p>  
+                                                <p class="room_description">
+                                                    Likes: <%= room.likes %>
+                                                </p>
+                                                <p class="room_description">
+                                                    Available from: <%= room.availfrom %>
+                                                </p>  
+                                            
+
+                                            <input type="hidden" id="roomid" name="roomid" value="<%= room._id %>">
+                                        </div>
+                                        
+                                        
+                                            <input type="hidden" value="<%= room._id %>" name="roomid" id="roomid">
+                                            <% if (room.booked == false) { %>
+                                                <!-- <button class="dbtn" type="button" onclick="Bookroom()">Book</button> -->
+                                                <button class="dbtn" type="submit">Book</button>
+                                            <% } else { %>
+                                                <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button>
+                                            <% } %>   
+                                        </div>
+                                        </form>
+                                        <form action="/like" method="POST" class="inline">
+                                            <input type="hidden" id="roomid" name="roomid" value="<%= room._id %>" >
+                                            <button  >Like</button>
+                                        </form><br>
+                                        <form action="/comment" method="post" class="inline">
+                                            <input type="hidden" id="roomid" name="roomid" value="<%= room._id %>" >
+                                            <input type="text" id="comment" name="comment" value="" placeholder="comment">
+                                            <button  >Comment</button>
+                                        </form><br>
+                                        <form action="/users/message" method="POST" class="inline">
+                                            <input type="hidden" id="lemail" name="lemail" value="<%= room.owner %>" >
+                                            <input type="text" id="roommes" name="roommes" value="" placeholder="Send landlord a message">
+                                            <button  >Send</button>
+                                        </form><br>
+                                    </article>
+                                    <% } %>
+                            </div>
+                        
+                            <% } else { %>
+                                <h1>No rooms Found!</h1>
+                                <% } %>
+                            </body>
+                    </main>
+             
+                    <script src="/js/admin.js"></script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login App</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    {{!-- <link rel="stylesheet" href="/css/style.css" /> --}}
+</head>
+<body>
+    <div class="container">
+      <nav id="nomad-navbar" class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/">
+                      <span class="glyphicon glyphicon glyphicon-fire"></span>
+                      Nomad
+                  </a>
+              </div>
+
+              <ul class="nav navbar-nav">
+                  <li><a href="/">Home</a></li>
+                  {{#if user}}
+                      {{#if user.isLord}}
+                          <li><a href="/listings/new">Publish a new listing</a></li>
+                      {{/if}}
+                  {{else}}
+                  {{!-- <li><a href="/bookings">Bookings</a></li> --}}
+                  {{/if}}
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                {{#if user}}
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Logged in: {{user.email}} </a></li>
+                  <li><a href="/users/logout"><span class="glyphicon glyphicon-glyphicon-floppy-remove"></span> Logout</a></li>
+                {{else}}
+                  <li><a href="/users/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {{/if}}
+              </ul>
+          </div>
+      </nav>
+      {{!-- <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            {{#if user}}
+            <li role="presentation"><a href="/">Dashboard</a></li>
+            <li role="presentation"><a href="/users/logout">Logout</a></li>
+            {{else}}
+            <li role="presentation"><a href="/users/login">Login</a></li>
+            <li role="presentation"><a href="/users/register">Register</a></li>
+            {{/if}}
+          </ul>
+        </nav>
+          <h3 class="text-muted"><a href="/home/home">Nomad</a></h3>
+      </div> --}}
+
+      <div class="row ">
+        <div class="col-lg-12"></div>
+            {{#if success_msg}}
+                <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
+            
+            {{#if error_msg}}
+                <div class="alert alert-danger">{{error_msg}}</div>
+            {{/if}}
+            
+            {{#if error_msg}}
+                <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+            
+          {{{body}}}
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p class="text-center text-muted">&copy; 2019 NomadBNB, Inc.</p>
+        <p class="text-center text-muted">Project by:
+            <a href="https://github.com/ltreu">Laune Treu</a>
+            <a href="https://github.com/ltreu">Joubert Duvenhage</a>
+            <a href="https://github.com/ltreu">tspies</a>
+            <a href="https://github.com/ltreu">pvan-ren</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+</body>
+<script>
+  let nom = document.getElementById('nomad-navbar');
+  (nom) ? document.body.insertBefore(nom, document.body.firstChild) : null;
+  </script>
+</html>

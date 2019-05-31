@@ -1,0 +1,15 @@
+<form action="/" class="inline">
+    <button class="float-left submit-button" >Home</button>
+</form>
+
+{{#if user.isAdmin}}
+    <H1 style="color:white">The admin account cant be deleted</H1>
+{{else}}
+<H1 style="color:white"> Are u sure {{user.email }} ?</H1>
+
+<form action="/accdel" method="post" class="inline">
+<br>
+<button class="float-left submit-button" type="submit">Delete</button>
+</form> 
+
+{{/if}}

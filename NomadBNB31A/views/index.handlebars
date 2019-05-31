@@ -1,0 +1,22 @@
+<h1 class="page-header" style="color:white">Dashboard</h1>
+<h1><p style="color:white">Welcome to Nomad</p></h1>
+
+{{#if user.isAdmin}}
+
+<h1><li><a style="color:white" href="/admin/rooms">Admin all rooms</a></li></h1>
+
+{{/if}}
+
+{{#if user.isLord}}
+
+{{!-- <h1><li><a style="color:white" href="/home/availrooms">Browse available rooms</a></li></h1> --}}
+<h1><li><a style="color:white" href="/home/home">Browse available rooms </a></li></h1>
+<h1><li><a style="color:white" href="/landlord/availrooms">View my rooms</a></li></h1>
+ <h1><li><a style="color:white" href="/accdel">Delete account</a></li></h1> 
+{{else}}
+
+{{!-- <h1><li><a style="color:white" href="/home/availrooms">Browse available rooms</a></li></h1> --}}
+<h1><li><a style="color:white" href="/home/home">Browse available rooms </a></li></h1>
+<h1><li><a style="color:white" href="/accdel">Delete account</a></li></h1>
+{{/if}}
+
