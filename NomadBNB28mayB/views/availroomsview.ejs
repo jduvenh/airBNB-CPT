@@ -18,9 +18,13 @@
              </head>
                 <body  background-image: url("/images/brad-fickeisen-762583-unsplash.jpg")>
                    <main>
+                        
                        <% if (rooms.length > 0) { %>
                             <div class="grid">
                                 <% for (let room of rooms) { %>
+                                    <form action="/" class="inline">
+                                        <button class="float-left submit-button" >Home</button>
+                                    </form>
                                     <form action="/home/postavailrooms" method="post" enctype="multipart/form-data">
                                     
                                             <h1 class="room_title">
@@ -52,7 +56,7 @@
                                         
                                             <input type="hidden" value="<%= room._id %>" name="roomid" id="roomid">
                                             <% if (room.booked == false) { %>
-                                                <button class="dbtn" type="button" onclick="Bookroom()">Book</button>
+                                                <!-- <button class="dbtn" type="button" onclick="Bookroom()">Book</button> -->
                                                 <button class="dbtn" type="submit">Book.</button>
                                             <% } else { %>
                                                 <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button>

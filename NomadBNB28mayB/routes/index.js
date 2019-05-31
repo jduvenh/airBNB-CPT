@@ -4,6 +4,8 @@ var router = express.Router();
 var User = require('../models/user'); 
 //var isLord =  User.islandlord(user.email);
 router.get('/', ensureAuthenticated, function(req, res) {
+    req.session.email = req.user.email;
+    req.session.username = req.user.username;
     res.render('index.handlebars');
 });
 

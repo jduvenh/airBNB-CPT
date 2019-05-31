@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    function showPosition(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                document.getElementById("result").innerHTML = positionInfo;
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+				document.getElementById("geolocateLat").value = latitude;
+				document.getElementById("geolocateLong").value = longitude;
+            });
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+</script>
+<head>
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<section class="jumbotron">
+    <div class="container">
+       <div class="row text-center">
+        <h1 class="page-header">Nomad</h>
+      <h2>Find A Place Near Me</h2>
+        <div class="btn-group"></div>
+              <div class="col-xs-5 date">
+					<form method="post" action="/find">
+						<input id ="geolocateLat" name="geolocateLat" type="hidden"></input>
+						<input id = "geolocateLong" name="geolocateLong" type="hidden"></input>
+						<button type="submit">Click To Find Places Near You</button>
+					</form>
+                  <div id="result"></div>
+              </div>
+            </div>
+          <div class="form-group">
+            <div class="col-xs-5 col-xs-offset-3">
+              <button type="submit" class="btn btn-default" onclick="showPosition();">Find My Location</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>

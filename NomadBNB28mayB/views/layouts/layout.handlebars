@@ -23,7 +23,9 @@
               <ul class="nav navbar-nav">
                   <li><a href="/">Home</a></li>
                   {{#if user}}
-                  <li><a href="/listings/new">Publish a new listing</a></li>
+                      {{#if user.isLord}}
+                          <li><a href="/listings/new">Publish a new listing</a></li>
+                      {{/if}}
                   {{else}}
                   <li><a href="/bookings">Bookings</a></li>
                   {{/if}}

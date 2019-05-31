@@ -201,10 +201,20 @@ app.get("/bookings/new", function(req, res) {
       // res.redirect("/users/login");
     }
   });
+//geo-location
+app.get("/find", function(req, res, next){
+	res.render("geo-location.handlebars")
+});
+app.post("/find", function(req, res, next){
+	let geoLong = req.body.geolocateLat;
+	let geoLat = req.body.geolocateLong;
+	res.redirect("/find");
+});
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  app.post("/listings", postlistingsController.Postlistings);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   app.get('/home/availrooms', avvailrooomsController.Availrooms );
+ /////////////////////////////////////////////////////////////////////////////
+ app.get('/landlord/availrooms', avvailrooomsController.landAvailrooms );
  /////////////////////////////////////////////////////////////////////////////
  app.post('/home/postavailrooms', avvailrooomsController.postBookAvailrooms );
  /////////////////////////////////////////////////////////////////////////////
@@ -212,6 +222,21 @@ app.get("/bookings/new", function(req, res) {
  /////////////////////////////////////////////////////////////////////////////
   app.get("/listings", listingsController.getListings);
 ////////////////////////////////////////////////////////////////////
+app.post("/postupdateroom",avvailrooomsController.postupdateroom );
+ /////////////////////////////////////////////////////////////////////////////
+ app.get("/admin/rooms", avvailrooomsController.adminAvailrooms);
+ app.post("/listings", postlistingsController.Postlistings);
+ app.get("/accdel",function (req, res) {
+  if (req.session.email != undefined) {
+    res.render("accdel.handlebars");
+  }
+  else {
+    res.redirect("/");
+    // res.redirect("/users/login");
+  } });
+  app.post("/accdel", avvailrooomsController.deluser);
+
+
   app.get('/listings_filter', function(req, res){
     req.session.filter_date = req.query.filter_date;
     Listing.find({}).where('available').equals(req.session.filter_date).where('booking').equals(null).exec(function(err, listings) {
@@ -222,7 +247,8 @@ app.get("/bookings/new", function(req, res) {
 
 //set port
 
-app.set('port', (process.env.PORT || 4003));
+//app.set('port', (process.env.PORT || 4003));
+app.set('port', ('127.0.0.1' , 3000));
 //
 app.listen(app.get('port'), function() {
    console.log('server started on port ' + app.get('port')); 

@@ -18,6 +18,10 @@ var UserSchema = mongoose.Schema({
     isLord: {
         type: Boolean
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     isVerified: {
         type: Boolean,
         default: false
@@ -25,6 +29,10 @@ var UserSchema = mongoose.Schema({
     verifyToken: {
         type: String,
         default: ""
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 
 });

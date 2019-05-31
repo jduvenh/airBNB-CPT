@@ -82,15 +82,16 @@
         <label style="color:white" for="available">Available from</label>
         <input type="date" class="form-control" id="available" placeholder="Available on" name="available">
       </div>
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <label style="color:white" for="landemail">Email address for bookings</label>
         <input type="text" class="form-control" id="landemail" placeholder="Email" name="landemail">
-      </div>
+      </div> --}}
       <div class="form-group">
         <label style="color:white" for="landetell">Tell number for bookings</label>
         <input type="text" class="form-control" id="landtell" placeholder="Telephone Number" name="landtell">
       </div>
-      <textarea  class="form-control" rows="3" name="description" placeholder="Add your description here...">Add your description here...</textarea>
+      <textarea  class="form-control" rows="3" name="description" placeholder="Add your description here..."></textarea>
+      <input type="hidden" name="landemail" id="landemail" value="{{user.email}}">
       <button  type="submit" class="btn btn-default">List my space!</button>
     </form>
   </div>

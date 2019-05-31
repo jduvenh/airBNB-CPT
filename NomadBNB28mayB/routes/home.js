@@ -27,27 +27,29 @@ router.get('/home', function(req, res) {
 //router.get('/availrooms', adminController.getProducts);
 
 // /admin/add-product => GET
-router.get('/add-room', isAuth, adminController.getAddProduct);
-
+//router.get('/add-room', isAuth, adminController.getAddProduct);
+router.get('/add-room', isAuth, adminController.getAddRoomo);
 // /admin/products => GET
-router.get('/products', isAuth, adminController.getProducts);
+//router.get('/products', isAuth, adminController.getRoomsex);
+router.get('/roomos', isAuth, adminController.getRoomsex);
 //router.get('/viewroom/:roomid', isAuth, adminController.getRoom);
 
-router.post(
-  '/add-room',
-  [
-    body('title')
-      .isString()
-      .isLength({ min: 3 })
-      .trim(),
-    body('price').isFloat(),
-    body('description')
-      .isLength({ min: 5, max: 400 })
-      .trim()
-  ],
-  isAuth,
-  adminController.postAddProduct
-);
+// router.post(
+//   '/add-room',
+//   [
+//     body('title')
+//       .isString()
+//       .isLength({ min: 3 })
+//       .trim(),
+//     body('price').isFloat(),
+//     body('description')
+//       .isLength({ min: 5, max: 400 })
+//       .trim()
+//   ],
+//   isAuth,
+//   //adminController.postAddProduct,
+//   adminController.postAddRoomo
+//   );
 router.post(
   '/edit-room',
   [
@@ -61,10 +63,11 @@ router.post(
       .trim()
   ],
   isAuth,
-  adminController.postEditProduct
+  //adminController.postEditProduct,
+  adminController.postEditRoom
 );
 
-router.delete('/product/:productId', isAuth, adminController.deleteProduct);
+//router.delete('/product/:productId', isAuth, adminController.deleteProduct);
 
 
  module.exports = router;

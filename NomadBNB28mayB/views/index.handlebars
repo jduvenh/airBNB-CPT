@@ -1,18 +1,20 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to Nomad</p>
+<h1 class="page-header" style="color:white">Dashboard</h1>
+<h1><p style="color:white">Welcome to Nomad</p></h1>
+
+{{#if user.isAdmin}}
+
+<h1><li><a style="color:white" href="/admin/rooms">Admin all rooms</a></li></h1>
+
+{{/if}}
+
 {{#if user.isLord}}
 
-<li><a href="/home/add-room">Landlord - Add a room</a></li>
-<li><a href="/home/edit-room">Landlord - Edit room(s)</a></li>
-<li><a href="/home/edit-room">Landlord - Delete rooms</a></li>
-<li><a href="/home/edit-room">Landlord - Delete account</a></li>
-<li><a href="/home/availrooms">Landlord-   Browse availble rooms</a></li>
-<li><a href="/home/edit-room">landlord -   Delete account</a></li>
+<h1><li><a style="color:white" href="/home/availrooms">Browse availble rooms</a></li></h1>
+<h1><li><a style="color:white" href="/landlord/availrooms">View my rooms</a></li></h1>
+ <h1><li><a style="color:white" href="/accdel">Delete account</a></li></h1> 
 {{else}}
-<li><a href="/home/add-room">Tenant - Add a room</a></li>
-<li><a href="/home/edit-room">Tenant - Edit room(s)</a></li>
-<li><a href="/home/edit-room">Tenant - Delete rooms</a></li>
-<li><a href="/home/edit-room">Tenant - Delete account</a></li>
-<li><a href="/home/availrooms">Tenant -   Browse availble rooms</a></li>
-<li><a href="/home/edit-room">Tenant -   Delete account</a></li>
+
+<h1><li><a style="color:white" href="/home/availrooms">Browse availble rooms</a></li></h1>
+<h1><li><a style="color:white" href="/accdel">Delete account</a></li></h1>
 {{/if}}
+

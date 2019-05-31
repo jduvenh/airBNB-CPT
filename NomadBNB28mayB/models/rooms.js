@@ -44,7 +44,8 @@ const roomSchema = new Schema({
   },
   georoom: geoSchema,
   booked: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   bookedby: {
     type: {
@@ -60,6 +61,15 @@ const roomSchema = new Schema({
     type: {
       String
     }
+  },
+  notofi: {
+    type: Boolean,
+    default: true
+    
+  },
+  avail: {
+    type : Boolean,
+    default: true
   }
 
 });

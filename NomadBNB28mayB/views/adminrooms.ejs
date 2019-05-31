@@ -16,18 +16,21 @@
             <head>
                 <link rel="stylesheet" type="text/css" href="../css/arstyle.css">
              </head>
+             <form action="/" class="inline">
+                <button class="float-left submit-button" >Home</button>
+            </form>
                 <body  background-image: url("/images/brad-fickeisen-762583-unsplash.jpg")>
                    <main>
-                       <% if (rooms.length > 0) { %>
                         <form action="/" class="inline">
                             <button class="float-left submit-button" >Home</button>
                         </form>
+                       <% if (rooms.length > 0) { %>
                             <div class="grid">
                                 <% for (let room of rooms) { %>
                                     <form action="/" class="inline">
                                         <button class="float-left submit-button" >Home</button>
                                     </form>
-                                    <form action="/home/availrooms" method="post" enctype="multipart/form-data">
+                                    <form action="/postupdateroom" method="post" enctype="multipart/form-data">
                                     
                                             <h1 class="room_title">
                                                 <%= room.title %>
@@ -52,16 +55,50 @@
                                             <p class="room_description">
                                                 More info: <%= room.description %>
                                             </p>
+                                            <p class="room_description">
+                                                Room availble ?: <%= room.avail %>
+                                            </p>
+                                            <p class="room_description">
+                                                Room Booked ?: <%= room.booked %>
+                                            </p>
+                                            <p class="room_description">
+                                                 Email Notification: <%= room.notofi %>
+                                            </p>
                                             <input type="hidden" id="roomid" name="roomid" value="<%= room._id %>">
                                         </div>
+                                        <div class="Landlord">
+                                            <br><label>Delete: </label>
+                                            <input type="radio" name="chooseArea" id="del" value="1"/> 
+
+                                            <br><label>Make unavailble: </label>
+                                            <input type="radio" name="chooseArea" id="unavail" value="2">
+
+                                            <br><label>Make availble: </label>
+                                            <input type="radio" name="chooseArea" id="avail" value="3">
+
+                                            <br><label>Booked: </label>
+                                            <input type="radio" name="chooseArea" id="fbook" value="4">
+
+                                            <br><label>Unbook: </label>
+                                            <input type="radio" name="chooseArea" id="favail" value="5">
+
+                                            <br><label>Email Notification on: </label>
+                                            <input type="radio" name="chooseArea" id="enotifi" value="6">
+                                            
+                                            <br><label>Email Notification of: </label>
+                                            <input type="radio" name="chooseArea" id="enotofi" value="7"/>
+                                        </div>
+
                                         
                                         
                                             <input type="hidden" value="<%= room._id %>" name="roomid" id="roomid">
                                             <% if (room.booked == false) { %>
                                                 <!-- <button class="dbtn" type="button" onclick="Bookroom()">View or Book</button> -->
-                                                <button class="dbtn" type="submit">View or Book</button>
+                                                <button class="dbtn" type="submit">Update Room</button>
+
                                             <% } else { %>
-                                                <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button>
+                                                <!-- <button class="dbtn" type="button" onclick="Bookroomfull()">Room Full</button> -->
+                                                <button class="dbtn" type="submit">Update Room</button>
                                             <% } %>   
                                         </div>
                                         </form>
